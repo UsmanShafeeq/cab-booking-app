@@ -120,4 +120,21 @@ If you want, I can:
 - Install `lucide-react` and start the dev server for you.
 
 Pick one and I'll proceed.
+
+## Deploying to Vercel
+
+This project builds as a static site using Vite. To deploy on Vercel:
+
+1. Go to https://vercel.com and log in (or sign up).
+2. Click "New Project" and import this GitHub repository: `UsmanShafeeq/cab-booking-app`.
+3. Vercel should detect a static site. Use the following settings if prompted:
+
+	- Build Command: npm run build
+	- Output Directory: dist
+
+4. Click "Deploy".
+
+The repo includes a `vercel.json` that instructs Vercel to use the static-build adapter and serve files from `dist`.
+
+If you'd like, I can create a Vercel project for you if you provide a Vercel token with the necessary permissions (or you can import the repo from the Vercel dashboard yourself).
 # cab-booking-app
