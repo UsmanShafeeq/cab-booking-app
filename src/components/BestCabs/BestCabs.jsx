@@ -1,4 +1,5 @@
 import React from "react";
+/* eslint-disable-next-line no-unused-vars */
 import { motion } from "framer-motion";
 import carImg from "../../assets/carbooking.png";
 import playImg from "../../assets/website/play_store.png";
@@ -16,8 +17,8 @@ const BestCabs = () => {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-12 relative z-10">
         
-        {/* Left Content */}
-        <motion.div
+  {/* Left Content */}
+  <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -57,7 +58,7 @@ const BestCabs = () => {
         </motion.div>
 
         {/* Right Image */}
-        <motion.div
+  <motion.div
           initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
@@ -75,7 +76,7 @@ const BestCabs = () => {
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
           />
-        </motion.div>
+  </motion.div>
       </div>
     </section>
   );
