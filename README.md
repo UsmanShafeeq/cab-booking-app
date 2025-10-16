@@ -85,56 +85,79 @@ Usage examples:
 import { Button } from '@mui/material'
 
 <Button variant="contained">Primary</Button>
-```
-
-- react-icons example:
-
-```jsx
-import { FaTaxi } from 'react-icons/fa'
-
-<FaTaxi />
-```
-
-## Common fixes
-
-- "Failed to resolve import 'lucide-react'": run `npm install lucide-react` and restart the dev server.
-- CSS not updating: ensure `src/index.css` contains the Tailwind imports and that `tailwind.config.cjs` `content` includes your component paths.
-
-## Deploying
-
-You can deploy the contents of the `dist/` folder (produced by `npm run build`) to any static hosting provider (Netlify, Vercel, Surge, S3, etc.).
-
-## Contributing
-
-Feel free to open issues or PRs. If you change the project setup (switch Tailwind major version, swap CSS approach, or add a new icon library), document the change in this README.
-
-## License
-
-This project does not include a license file. Add a `LICENSE` if you want to make the repo public under a specific license.
-
----
-
-If you want, I can:
-
-- Add a small `Getting started` section that walks through adding a new page or component.
-- Install `lucide-react` and start the dev server for you.
-
-Pick one and I'll proceed.
-
-## Deploying to Vercel
-
-This project builds as a static site using Vite. To deploy on Vercel:
-
-1. Go to https://vercel.com and log in (or sign up).
-2. Click "New Project" and import this GitHub repository: `UsmanShafeeq/cab-booking-app`.
-3. Vercel should detect a static site. Use the following settings if prompted:
-
-	- Build Command: npm run build
-	- Output Directory: dist
-
-4. Click "Deploy".
-
-The repo includes a `vercel.json` that instructs Vercel to use the static-build adapter and serve files from `dist`.
-
-If you'd like, I can create a Vercel project for you if you provide a Vercel token with the necessary permissions (or you can import the repo from the Vercel dashboard yourself).
 # cab-booking-app
+
+Lightweight React + Vite starter for a Cab Booking UI. This project uses Tailwind CSS (v4) wired through Vite and PostCSS. It also includes examples that use Material UI and react-icons.
+
+This README explains how to get the project running locally, build it for production, and deploy (Vercel). It also covers common fixes and troubleshooting.
+
+Table of contents
+- Prerequisites
+- Install
+- Available scripts
+- Tailwind notes
+- Icons & Material UI
+- Troubleshooting
+- Deploying (Vercel)
+- CI
+- Contributing
+
+Prerequisites
+- Node.js (LTS recommended, >=18)
+- npm (bundled with Node) — instructions below use npm and PowerShell syntax
+
+Install
+From the project root run:
+
+```powershell
+npm install
+```
+
+Available scripts
+- npm run dev — start the dev server with HMR
+- npm run build — build production assets to `dist/`
+- npm run preview — preview the production build locally
+- npm run lint — run ESLint
+
+Tailwind CSS (v4) notes
+- This project uses Tailwind v4 with the `@tailwindcss/postcss` adapter.
+- Key files:
+	- `src/index.css` — Tailwind imports (v4-friendly)
+	- `tailwind.config.cjs` — content paths + theme extensions
+	- `postcss.config.cjs` — uses `@tailwindcss/postcss` and `autoprefixer`
+- When you add new file types or folders, update `tailwind.config.cjs` `content` so Tailwind purges unused CSS correctly.
+
+Icons & Material UI
+- Installed packages include `@mui/material`, `@mui/icons-material`, and `react-icons`.
+- If you see an error for `lucide-react`, install it:
+
+```powershell
+npm install lucide-react
+```
+
+Troubleshooting
+- Blank page after deploy: ensure `vite.config.js` `base` is not set to an absolute URL (we use the default `/` so assets are loaded from the deployed domain).
+- Failed import errors: run `npm install` and restart the dev server.
+- ESLint complaints: run `npm run lint` and fix reported issues (I ran automated fixes during setup for some files).
+
+Deploying to Vercel (quick)
+1. Sign in to Vercel and click New Project → Import GitHub repo: `UsmanShafeeq/cab-booking-app`.
+2. Use these settings if prompted:
+	 - Build Command: `npm run build`
+	 - Output Directory: `dist`
+3. Deploy.
+
+The repo includes `vercel.json` and `.vercelignore` to help Vercel detect the static build.
+
+CI (GitHub Actions)
+- A CI workflow was added at `.github/workflows/ci.yml` that runs `npm ci` and `npm run build` on pushes/PRs to `main`. You can view build logs in the Actions tab.
+
+Contributing
+- Open issues or PRs. If you change build tooling (Tailwind major upgrade, different PostCSS setup, etc.) please update this README.
+
+License
+- No license is provided. Add a `LICENSE` file if you want to publish under a specific license.
+
+If you want, I can also:
+- Install `lucide-react` and start the dev server so you can preview locally.
+- Add automatic Vercel deployment to CI (requires a `VERCEL_TOKEN` repo secret).

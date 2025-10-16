@@ -20,6 +20,7 @@ function App() {
         <Contact />
         <BestCabs />
         <Testimonial />
+        <BestCabs />
         <Footer />
       </div>
     </>
